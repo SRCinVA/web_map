@@ -37,8 +37,11 @@ fg = folium.FeatureGroup(name="My Map")
 
 # the zip function lets you iterate over items from multiple separate lists
 for lt,ln,el in zip(lat,lon,elev): # strangely, never got his type error; folium had trouble with floats for my code.
-    map.add_child(folium.Marker(location = [lt, ln], popup = str(el) + " m", icon=folium.Icon(color = color_producer(el)))) # need to pass <el> to color_producer()
-
+    map.add_child(folium.CircleMarker(location = [lt, ln], radius = 6, popup = str(el) + " m", # need to pass <el> to color_producer()
+    fill_color=color_producer(el), color = 'grey', fill_opacity=0.7))
+    # he took away 'folium.Icon' -- maybe that was a standard icon of some sort?
+    # color = "grey" is for the outline of the dot.
+    # nice that you can add radius to the dot.
 
 map.add_child(fg) # this helps you keep your code organized when you want to add other layers
 
