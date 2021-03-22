@@ -43,6 +43,11 @@ for lt,ln,el in zip(lat,lon,elev): # strangely, never got his type error; folium
     # color = "grey" is for the outline of the dot.
     # nice that you can add radius to the dot.
 
+# to dispaly the data from the world.json file. The folium.GeoJson objects takes data attribute. 
+# We give it a file object using open(world.json). We open it in read mode.
+fg.add_child(folium.GeoJson(data = (open('world.json', 'r', encoding = 'utf-8-sig').read()))) 
+# you have to add teh read() method. Folium now takes a string instaed of a file as data input.
+
 map.add_child(fg) # this helps you keep your code organized when you want to add other layers
 
 map.save("Map3.html")
