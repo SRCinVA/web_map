@@ -22,7 +22,7 @@ def color_producer(elev):
 #  elif 1000 <= elevation < 3000:
 #      return 'orange'
 #  else:
-#      retturn 'red'
+#      return 'red'
 
 map = folium.Map(location=[33.99,-77.5], zoom_start=6, tiles = "Stamen Terrain")
 
